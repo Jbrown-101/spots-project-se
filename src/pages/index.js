@@ -20,7 +20,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([user, cards]) => {
     profileNameEl.textContent = user.name;
     profileDescriptionEl.textContent = user.about;
-    document.querySelector(".profile__avatar").src = user.avatar;
+    profileAvatar.src = user.avatar;
 
     cards.forEach((item) => {
       const cardEl = getCardElement(item);
