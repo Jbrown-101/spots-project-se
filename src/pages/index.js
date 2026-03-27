@@ -128,9 +128,13 @@ function handleProfileSubmit(evt) {
       profileNameEl.textContent = data.name;
       profileDescriptionEl.textContent = data.about;
       closeModal(editProfileModal);
-      profileForm.reset();
-      resetValidation(profileForm, validationConfig);
-      disableButton(submitBtn, validationConfig);
+      editProfileForm.reset();
+      resetValidation(
+        editProfileForm,
+        [editProfileNameInput, editProfileDescriptionInput],
+        settings,
+      );
+      disableButton(submitBtn, settings);
     })
     .catch(console.error)
     .finally(() => {
@@ -155,8 +159,8 @@ function handleAvatarSubmit(evt) {
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
       avatarForm.reset();
-      resetValidation(avatarForm, validationConfig);
-      disableButton(submitBtn, validationConfig);
+      resetValidation(avatarForm, [avatarInput], settings);
+      disableButton(submitBtn, settings);
     })
     .catch(console.error)
     .finally(() => {
